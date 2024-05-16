@@ -1,35 +1,80 @@
 package com.example.databaseteam.service.impl;
 
 import com.example.databaseteam.model.Product;
+import com.example.databaseteam.repository.ProductRepository;
 import com.example.databaseteam.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
+@Service
 public class ProductServiceImpl implements ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+
     @Override
     public Product saveProduct(Product product) {
-        return null;
+        return productRepository.save(product);// return product after save product into database
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override
     public Boolean deleteProduct(Integer id) {
-        return null;
+        Product product = productRepository.findById(id).orElse(null);
+        if (!ObjectUtils.isEmpty(product)){
+            productRepository.delete(product);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Product getProductById(Integer id) {
-        return null;
+        return productRepository.findById(id).orElse(null);
     }
 
     @Override
-    public Product updateProduct(Product product, MultipartFile file) throws IOException {
+    public Product updateProduct(Product product, MultipartFile image) throws IOException {
+        Product changeProduct = getProductById(product.getId());
+        String imageName = image.isEmpty() ? changeProduct.getImage() : image.getOriginalFilename();
+        changeProduct.setPrice(product.getPrice());
+        changeProduct.setDescription(product.getDescription());
+        changeProduct.setTitle(product.getTitle());
+        changeProduct.setStock(product.getStock());
+        changeProduct.setDiscount(product.getDiscount());
+        changeProduct.setImage(imageName);
+
+        Product updateProduct = productRepository.save(changeProduct);
+
+        if (!ObjectUtils.isEmpty(updateProduct)){
+            if (!image.isEmpty()){
+                try {
+                    File saveFile = new ClassPathResource("static/img").getFile();
+                    Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + "product_img" + File.separator + image.getOriginalFilename());
+                    Files.copy(image.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return product;
+        }
+
+
         return null;
     }
 }

@@ -23,8 +23,8 @@ import java.nio.file.StandardCopyOption;
 @RequestMapping("/admin")
 public class AdminController {
 
-//    @Autowired
-//    private ProductService productService;
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/index")
     public String index(){
@@ -32,7 +32,8 @@ public class AdminController {
     }
 
     @GetMapping("/products")
-    public String viewProduct(){
+    public String viewProduct(Model m){
+        m.addAttribute("products",productService.getAllProducts());
         return "admin/products";
     }
 
@@ -42,14 +43,37 @@ public class AdminController {
         product.setImage(imageName);
         product.setDiscount(product.getDiscount());
         product.setDiscountPrice(product.getDiscountPrice());
-
-
-        Product saveProduct = productService.saveProduct(product);
+        Product saveProduct = productService.saveProduct(product);//return new product
         if (!ObjectUtils.isEmpty(saveProduct)){
             File saveFile = new ClassPathResource("static/img").getFile();
             Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+"product_img"+File.separator+image.getOriginalFilename());
-            System.out.println(path);
             Files.copy(image.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
+            session.setAttribute("successMsg","product saved success");
+        }
+        else {
+            session.setAttribute("errorMsg","something wrong on server");
+        }
+        return "redirect:/admin/products";
+    }
+
+    @GetMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable int id,HttpSession session){
+        Boolean deleteProduct = productService.deleteProduct(id);
+        System.out.println("hello"+id);
+        if (deleteProduct){
+            session.setAttribute("successMsg","product delete success");
+        }
+        else {
+            session.setAttribute("errorMsg","something wrong on server");
+        }
+        return "redirect:/admin/products";
+    }
+
+
+    @PostMapping("/editProduct")
+    public String editProduct(HttpSession session, @RequestParam("file") MultipartFile image,@ModelAttribute Product product) throws IOException {
+        Product updateProduct = productService.updateProduct(product,image);
+        if (!ObjectUtils.isEmpty(updateProduct)){
             session.setAttribute("successMsg","product saved success");
         }
         else {
