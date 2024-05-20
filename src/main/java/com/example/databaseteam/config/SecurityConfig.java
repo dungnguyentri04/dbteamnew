@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -19,15 +20,19 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(auth->auth //chuỗi bộ lọc
-//                        .dispatcherTypeMatchers("../static/**").permitAll()
-                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                        .requestMatchers("/","/login","/register","product").permitAll()
+//                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers("/","/login","/register","/product","/index","saveUser","/admin/**").permitAll()
                         .anyRequest()// mọi yêu cầu
                         .authenticated())
-//                .httpBasic(Customizer.withDefaults())// phương thức xác nhận đơn giản
                 .formLogin(login->
                         login.loginPage("/login")
                                 .loginProcessingUrl("/process-login")
@@ -44,7 +49,13 @@ public class SecurityConfig {
         return http.build();
     }
 
-
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication()
+//                .withUser("admin")
+//                .password(passwordEncoder().encode("adminPass"))
+//                .roles("ADMIN");
+//    }
 
     @Bean
     public UserDetailsService userDetailsService(){
@@ -57,11 +68,6 @@ public class SecurityConfig {
         daoAuthenticationProvider.setUserDetailsService(userDetailsService());//tai thong tin nguoi dung
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());//ma hoa mat khau
         return daoAuthenticationProvider;//xac thuc nguoi dung
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
     }
 
     @Bean
