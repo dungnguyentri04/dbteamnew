@@ -57,9 +57,7 @@ public class ProductServiceImpl implements ProductService {
         changeProduct.setStock(product.getStock());
         changeProduct.setDiscount(product.getDiscount());
         changeProduct.setImage(imageName);
-
         Product updateProduct = productRepository.save(changeProduct);
-
         if (!ObjectUtils.isEmpty(updateProduct)){
             if (!image.isEmpty()){
                 try {
@@ -73,8 +71,6 @@ public class ProductServiceImpl implements ProductService {
             }
             return product;
         }
-
-
         return null;
     }
 }

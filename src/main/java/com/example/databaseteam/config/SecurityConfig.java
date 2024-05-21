@@ -20,6 +20,15 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableMethodSecurity
 @Configuration
 public class SecurityConfig {
+    private static final String[] PUBLIC_URLS = {
+            "/",
+            "/login",
+            "/register",
+            "/product",
+            "/index",
+            "/saveUser",
+            "/api/**",
+    };
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
@@ -29,8 +38,8 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(auth->auth //chuỗi bộ lọc
-//                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
-                        .requestMatchers("/","/login","/register","/product","/index","saveUser","/admin/**").permitAll()
+                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
+                        .requestMatchers(PUBLIC_URLS).permitAll()
                         .anyRequest()// mọi yêu cầu
                         .authenticated())
                 .formLogin(login->
@@ -39,12 +48,11 @@ public class SecurityConfig {
                                 .defaultSuccessUrl("/index", true)
                                 .permitAll()// form xác nhận
                 )
-//                .logout(logout->
-//                        logout.invalidateHttpSession(true)
-//                                .clearAuthentication(true)
-//                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                                .logoutSuccessUrl("/login?logout")
-//                                .permitAll())
+                .logout(logout -> logout
+                        .logoutUrl("/logout") // URL để đăng xuất
+                        .logoutSuccessUrl("/index") // URL chuyển hướng sau khi đăng xuất thành công
+                        .permitAll()
+                )
                 .csrf(AbstractHttpConfigurer::disable);// bảo mật
         return http.build();
     }

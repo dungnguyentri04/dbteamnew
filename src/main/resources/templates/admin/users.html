@@ -18,9 +18,9 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-6"><h2>Manage <b>Employees</b></h2></div>
+                <div class="col-sm-6"><h2>Manage <b>User</b></h2></div>
                 <div class="col-sm-6">
-                    <a href="#addProductForm" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                    <a href="#addUserForm" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
                     <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                 </div>
             </div>
@@ -35,32 +35,32 @@
                         <label for="selectAll"></label>
                     </span>
                 </th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Discount</th>
-                <th>Description</th>
-                <th>Stock</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Mobile Number</th>
+                <th>Roles</th>
                 <th>Image</th>
             </tr>
             </thead>
 
             <tbody>
-            <tr th:each="product:${products}">
+            <tr th:each="user:${users}">
                 <td>
                     <span class="custom-checkbox">
                         <input type="checkbox" id="checkbox1" name="options[]" value="1">
                         <label for="checkbox1"></label>
                     </span>
                 </td>
-                <td>[[${product.title}]]</td>
-                <td>[[${product.price}]]</td>
-                <td>[[${product.discount}]]</td>
-                <td>[[${product.description}]]</td>
-                <td>[[${product.stock}]]</td>
-                <td><img th:src="@{'/img/product_img/'+${product.image}}" width="70px" height="70px"></td>
+                <td>[[${user.name}]]</td>
+                <td>[[${user.email}]]</td>
+                <td>[[${user.address}]]</td>
+                <td>[[${user.mobileNumber}]]</td>
+                <td>[[${user.roles}]]</td>
+                <td><img th:src="@{'/img/profile_img/'+${user.profileImage}}" width="70px" height="70px"></td>
                 <td>
-                    <a href="#editProductForm" class="edit" data-toggle="modal"><i class="material-icons editProduct" data-toggle="tooltip" th:data-id="${product.id}" title="Edit">&#xE254;</i></a>
-                    <a href="#deleteProductForm" class="delete" data-toggle="modal"><i class="material-icons deleteProduct" data-toggle="tooltip" th:data-id="${product.id}" title="Delete">&#xE872;</i></a>
+                    <a href="#editUserForm" class="edit" data-toggle="modal"><i class="material-icons editUser" data-toggle="tooltip" th:data-id="${user.id}" title="Edit">&#xE254;</i></a>
+                    <a href="#deleteUserForm" class="delete" data-toggle="modal"><i class="material-icons deleteUser" data-toggle="tooltip" th:data-id="${user.id}" title="Delete">&#xE872;</i></a>
                 </td>
             </tr>
             </tbody>
@@ -84,34 +84,34 @@
 
 
 <!-- Edit Modal HTML -->
-<div id="addProductForm" class="modal fade">
+<div id="addUserForm" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="/admin/saveProduct" method="post" enctype="multipart/form-data">
+            <form action="/admin/saveUser" method="post" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Product</h4>
+                    <h4 class="modal-title">Add User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Product</label>
-                        <input type="text" name="title" class="form-control" required>
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
-                        <input type="number" name="price" class="form-control" required>
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Discount</label>
-                        <input type="number" name="discount" class="form-control" required>
+                        <label>Address</label>
+                        <input type="text" name="address" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control" name="description" required></textarea>
+                        <label>Mobile Phone</label>
+                        <input type="number" name="mobileNumber" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Stock</label>
-                        <input type="text" name="stock" class="form-control" required>
+                        <label>Roles</label>
+                        <input type="text" name="roles" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Image</label>
@@ -128,35 +128,35 @@
 </div>
 
 <!-- Edit Modal HTML -->
-<div id="editProductForm" class="modal fade">
+<div id="editUserForm" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="/admin/editProduct" method="post" class="" enctype="multipart/form-data">
+            <form action="/admin/editUser" method="post" class="" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Product</h4>
+                    <h4 class="modal-title">Edit User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <input type="number" name="id" class="idProduct" style="visibility: hidden;">
+                    <input type="number" name="id" class="idUser" style="visibility: hidden;">
                     <div class="form-group">
-                        <label>Product</label>
-                        <input type="text" name="title" class="form-control title" required>
+                        <label>Name</label>
+                        <input type="text" name="name" class="form-control name" required>
                     </div>
                     <div class="form-group">
-                        <label>Price</label>
-                        <input type="number" name="price" class="form-control price" required>
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control email" required>
                     </div>
                     <div class="form-group">
-                        <label>Discount</label>
-                        <input type="number" name="discount" class="form-control discount" required>
+                        <label>Address</label>
+                        <input type="text" name="address" class="form-control address" required>
                     </div>
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control description" name="description" required></textarea>
+                        <label>Mobile Number</label>
+                        <input type="number" name="mobileNumber" class="form-control mobileNumber" required>
                     </div>
                     <div class="form-group">
                         <label>Stock</label>
-                        <input type="number" name="stock" class="form-control stock" required>
+                        <input type="text" name="roles" class="form-control roles" required>
                     </div>
                     <div class="form-group">
                         <label>Image</label>
@@ -173,12 +173,12 @@
 </div>
 
 <!-- Delete Modal HTML -->
-<div id="deleteProductForm" class="modal fade">
+<div id="deleteUserForm" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <form>
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete Employee</h4>
+                    <h4 class="modal-title">Delete User</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -187,7 +187,7 @@
                 </div>
                 <div class="modal-footer">
                     <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                    <a type="submit" class="btn btn-danger" id="linkDeleteProduct" >Delete</a>
+                    <a type="submit" class="btn btn-danger" id="linkDeleteUser" >Delete</a>
                 </div>
             </form>
         </div>
@@ -207,25 +207,25 @@
 
 <script src="/js/crud.js"></script>
 <script>
-    let classDeleteProduct = document.querySelectorAll(".deleteProduct")
-    console.log(classDeleteProduct)
-    classDeleteProduct.forEach(function (e)
+    let classDeleteUser = document.querySelectorAll(".deleteUser")
+    console.log(classDeleteUser)
+    classDeleteUser.forEach(function (e)
     {
         e.addEventListener(("click"), function () {
             console.log(e)
-            let productId = this.getAttribute('data-id');
-            let deleteLink = document.querySelector('#linkDeleteProduct');
-            deleteLink.href = '/admin/deleteProduct/' + productId;
+            let userId = this.getAttribute('data-id');
+            let deleteLink = document.querySelector('#linkDeleteUser');
+            deleteLink.href = '/admin/deleteUser/' + userId;
         })
     })
 
-    let classEditProduct = document.querySelectorAll(".editProduct")
-    classEditProduct.forEach(function (e)
+    let classEditUser = document.querySelectorAll(".editUser")
+    classEditUser.forEach(function (e)
     {
         e.addEventListener(("click"), function () {
-            let productId = this.getAttribute('data-id');
-            console.log(productId)
-            let url = "/api/product/" + productId
+            let userId = this.getAttribute('data-id');
+            let url = "/api/user/" + userId
+            console.log(url)
             fetch(url)
                 .then(response => {
                     // Kiểm tra xem phản hồi có thành công không
@@ -235,9 +235,9 @@
                     // Chuyển đổi dữ liệu JSON từ phản hồi
                     return response.json();
                 })
-                .then(product => {
+                .then(user => {
                     // Hiển thị thông tin sản phẩm
-                    displayProductDetails(product);
+                    displayUserDetails(user);
                 })
                 .catch(error => {
                     console.error('There was a problem with your fetch operation:', error);
@@ -245,22 +245,21 @@
         })
     })
 
-    function displayProductDetails(product){
-        let editProductForm = document.getElementById("editProductForm")
-        let productTitle = editProductForm.querySelector(".title")
-        let productPrice = editProductForm.querySelector(".price")
-        let productDescription = editProductForm.querySelector(".description")
-        let productDiscount = editProductForm.querySelector(".discount")
-        let productStock = editProductForm.querySelector(".stock")
-        let productId = editProductForm.querySelector(".idProduct")
-        let productFile = editProductForm.querySelector(".file")
-        console.log(productTitle)
-        productTitle.value = product.title
-        productPrice.value = product.price
-        productDescription.innerText = product.description
-        productDiscount.value = product.discount
-        productStock.value = product.stock
-        productId.value=product.id
+    function displayUserDetails(user){
+        let editUserForm = document.getElementById("editUserForm")
+        let userName = editUserForm.querySelector(".name")
+        let userEmail = editUserForm.querySelector(".email")
+        let userAddress = editUserForm.querySelector(".address")
+        let userMobileNumber = editUserForm.querySelector(".mobileNumber")
+        let userRoles = editUserForm.querySelector(".roles")
+        let userId = editUserForm.querySelector(".idUser")
+        // let productFile = editUserForm.querySelector(".file")
+        userName.value = user.name
+        userEmail.value = user.email
+        userAddress.innerText = user.address
+        userMobileNumber.value = user.mobileNumber
+        userRoles.value = user.roles
+        userId.value=user.id
     }
 </script>
 </body>

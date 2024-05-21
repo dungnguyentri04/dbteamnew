@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class OurUserInfoDetails implements UserDetails {
     private UserDtls user;
     private List<GrantedAuthority> roles;
-
     public OurUserInfoDetails(UserDtls user){
         this.user=user;
         this.roles= Arrays.stream(user.getRoles().split(","))

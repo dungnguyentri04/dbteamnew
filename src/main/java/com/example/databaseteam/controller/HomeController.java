@@ -63,8 +63,7 @@ public class HomeController {
         } else {
             session.setAttribute("errorMsg","Something wrong on server");
         }
-
-        return "index";
+        return "login";
     }
 
 
