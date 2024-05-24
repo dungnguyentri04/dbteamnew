@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       th:replace="~{base::layout(~{::section})}">
-<body>
-    <section>
-        <div id="wp-products">
-            <h2>SẢN PHẨM CỦA CHÚNG TÔI</h2>
-            <ul id="list-products">
-                <div class="item">
-                    <img src="/img/product_1.png" alt="">
-                    <div class="stars">
-                        <span><img src="/img/star.png" alt=""></span>
-                        <span><img src="/img/star.png" alt=""></span>
-                        <span><img src="/img/star.png" alt=""></span>
-                        <span><img src="/img/star.png" alt=""></span>
-                        <span><img src="/img/star.png" alt=""></span>
+
+<section class="food_section layout_padding">
+    <div class="container">
+        <div class="heading_container heading_center">
+        <h2>Our Menu</h2>
+
+        </div>
+        <ul class="filters_menu">
+        <li class="active" data-filter="*">All</li>
+        <li data-filter=".burger">Burger</li>
+        <li data-filter=".pizza">Pizza</li>
+        <li data-filter=".pasta">Pasta</li>
+        <li data-filter=".fries">Fries</li>
+        </ul>
+
+        <div class="filters-content">
+            <div class="row grid">
+                <div class="col-sm-6 col-lg-4 all pizza" th:each="product:${products}">
+                    <div class="box">
+                        <div>
+                            <div class="img-box"><img th:src="@{'/img/product_img/'+${product.image}}" alt=""></div>
+                            <div class="detail-box">
+                                <h5>[[${product.title}]]</h5>
+                                <p>[[${product.description}]]</p>
+                                <div class="options">
+                                    <h6>[[${product.price}]]</h6>
+                                    <a th:href="@{/add-to-cart(id=${product.id})}">
+                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve"></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="name">Món Ăn 1</div>
-                    <div class="desc">Mô Tả Ngắn Cho Sản Phẩm</div>
-                    <div class="price">500.000 VNĐ</div>
                 </div>
-            </ul>
-            <div class="list-page">
-                <div class="item"><a href="">1</a></div>
-                <div class="item"><a href="">2</a></div>
-                <div class="item"><a href="">3</a></div>
-                <div class="item"><a href="">4</a></div>
             </div>
         </div>
-    </section>
-</body>
+        <div class="btn-box"><a href="">View More</a></div>
+    </div>
+</section>
+

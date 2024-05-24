@@ -1,13 +1,13 @@
 package com.example.databaseteam.controller;
 
 import com.example.databaseteam.model.UserDtls;
-import com.example.databaseteam.repository.ProductRepository;
 import com.example.databaseteam.service.ProductService;
 import com.example.databaseteam.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,7 +33,8 @@ public class HomeController {
     }
 
     @GetMapping("/product")
-    public String product(){
+    public String product(Model m){
+        m.addAttribute("products",productService.getAllProducts());
         return "product";
     }
 
@@ -46,6 +47,7 @@ public class HomeController {
     public String register(){
         return "register";
     }
+
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute UserDtls user, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {

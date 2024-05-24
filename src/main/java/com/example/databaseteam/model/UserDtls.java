@@ -1,19 +1,17 @@
 package com.example.databaseteam.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
+@EqualsAndHashCode
 @Getter
 @Setter
 @Entity
+@Table(name = "user_dtls")
 public class UserDtls {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +36,16 @@ public class UserDtls {
     private String profileImage;
 
     private String roles;
+
+    @OneToOne(cascade = CascadeType.ALL,mappedBy = "user")//cascade : dong bo thao tac giua hai doi tuong
+    private ShoppingCart shoppingCart;
+//
+////    @OneToMany
+////    private List<Order> orders;
+//
+    public UserDtls(){
+        this.shoppingCart = new ShoppingCart();
+//        this.orders = new ArrayList<>();
+    }
+
 }

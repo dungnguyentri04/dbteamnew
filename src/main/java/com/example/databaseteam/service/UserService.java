@@ -11,4 +11,5 @@ public interface UserService {
     public UserDtls getUserDtlsById(Integer id);
     public UserDtls updateUser(UserDtls user, MultipartFile file);
     public Boolean deleteUser(Integer id);
+    public UserDtls getUserDtlsByEmail(String email);
 }

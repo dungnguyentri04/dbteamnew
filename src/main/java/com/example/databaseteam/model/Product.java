@@ -11,9 +11,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(length = 500)
