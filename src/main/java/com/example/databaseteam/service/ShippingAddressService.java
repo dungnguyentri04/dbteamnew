@@ -6,7 +6,7 @@ import com.example.databaseteam.model.ShoppingCart;
 
 import java.util.List;
 
-public interface OrderService {
-    public Order save(ShoppingCart cart, ShippingAddress shippingAddress);
-    public List<Order> getAllOrder();
+public interface ShippingAddressService {
+    public ShippingAddress save(ShippingAddress shippingAddress, Order order);
+    public List<ShippingAddress> getAllShippingAddress();
 }

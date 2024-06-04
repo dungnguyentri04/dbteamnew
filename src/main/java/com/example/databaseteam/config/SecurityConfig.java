@@ -30,6 +30,8 @@ public class SecurityConfig {
             "/api/**",
             "/cart/**",
             "/add-to-cart",
+            "/checkout",
+            "/admin/**",
     };
 
     @Bean
@@ -40,7 +42,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(auth->auth //chuỗi bộ lọc
-                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
+//                        .requestMatchers("/admin/**").hasAuthority("ADMIN")
 //                        .requestMatchers("/cart/").hasAuthority("USER")
                         .requestMatchers(PUBLIC_URLS).permitAll()
                         .anyRequest()// mọi yêu cầu

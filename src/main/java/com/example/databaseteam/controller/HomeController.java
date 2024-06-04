@@ -28,7 +28,8 @@ public class HomeController {
     private UserService userService;
 
     @GetMapping("/index")
-    public String index(){
+    public String index(Model m){
+        m.addAttribute("products",productService.getAllProducts());
         return "index";
     }
 

@@ -92,7 +92,7 @@ a:focus {
 /*header section*/
 .hero_area {
   position: relative;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,6 +139,7 @@ a:focus {
 }
 
 .header_section {
+  background-color: rgb(34, 40, 49);
   padding: 15px 0;
 }
 

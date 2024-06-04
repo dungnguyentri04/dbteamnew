@@ -3,8 +3,7 @@ package com.example.databaseteam.controller;
 
 import com.example.databaseteam.model.Product;
 import com.example.databaseteam.model.UserDtls;
-import com.example.databaseteam.service.ProductService;
-import com.example.databaseteam.service.UserService;
+import com.example.databaseteam.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -29,6 +28,15 @@ public class AdminController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ShoppingCartService shoppingCartService;
+
+    @Autowired
+    private ShippingAddressService shippingAddressService;
+
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/index")
     public String index(){
@@ -131,6 +139,25 @@ public class AdminController {
             session.setAttribute("errorMsg","something wrong on server");
         }
         return "redirect:/admin/users";
+    }
+
+    @GetMapping("/cart")
+    public String carts(Model m){
+        m.addAttribute("carts",shoppingCartService.getAllShoppingCart());
+        m.addAttribute("products",productService.getAllProducts());
+        return "/admin/cart";
+    }
+
+    @GetMapping("/orders")
+    public String orders(Model m){
+        m.addAttribute("orders",orderService.getAllOrder());
+        return "/admin/order";
+    }
+
+    @GetMapping("/shippingAddresses")
+    public String shippingAddresses(Model m){
+        m.addAttribute("shippingAddresses",shippingAddressService.getAllShippingAddress());
+        return "/admin/shippingAddress";
     }
 
 
