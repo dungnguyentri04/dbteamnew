@@ -47,25 +47,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDtls updateUser(UserDtls user, MultipartFile image) {
         UserDtls changeUser = getUserDtlsById(user.getId());
-//        String imageName = image.isEmpty() ? changeUser.getProfileImage() : image.getOriginalFilename();
-//        changeUser.setName(user.getName());
-//        changeUser.setEmail(user.getEmail());
-//        changeUser.setAddress(user.getAddress());
-//        changeUser.setMobileNumber(user.getMobileNumber());
-//        changeUser.setProfileImage(imageName);
+        String imageName = image.isEmpty() ? changeUser.getProfileImage() : image.getOriginalFilename();
+        changeUser.setName(user.getName());
+        changeUser.setEmail(user.getEmail());
+        changeUser.setAddress(user.getAddress());
+        changeUser.setMobileNumber(user.getMobileNumber());
+        changeUser.setProfileImage(imageName);
         changeUser.setRoles(user.getRoles());
         UserDtls updateUser = userRepository.save(changeUser);
         if (!ObjectUtils.isEmpty(updateUser)){
-//            if (!image.isEmpty()){
-//                try {
-//                    File saveFile = new ClassPathResource("static/img").getFile();
-//                    Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + "profile_img" + File.separator + image.getOriginalFilename());
-//                    Files.copy(image.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-//                }
-//                catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//            }
+            if (!image.isEmpty()){
+                try {
+                    File saveFile = new ClassPathResource("static/img").getFile();
+                    Path path = Paths.get(saveFile.getAbsolutePath() + File.separator + "profile_img" + File.separator + image.getOriginalFilename());
+                    Files.copy(image.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             return user;
         }
         return null;

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giới thiệu</title>
+    <link
+            rel="stylesheet"
+            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/style3.css" />
+
+
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link href="/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="/css/responsive.css" rel="stylesheet" />
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="/css/tiny-slider.css" rel="stylesheet">
+    <link href="/css/style2.css" rel="stylesheet">
+</head>
+
+<body class="body-fixed">
+<header class="site-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header-logo">
+                    <a href="index.html">
+                        <img
+                                src="/img/logo.png"
+                                width="160"
+                                height="36"
+                                alt="Logo"
+                        /></a>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="main-navigation">
+                    <button class="menu-toggle"><span></span><span></span></button>
+                    <nav class="header-menu">
+                        <ul class="menu food-nav-menu">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="about.html">Giới thiệu</a></li>
+                            <li><a href="menu.html">Thực đơn</a></li>
+                            <li><a href="gallery.html">Trưng bày</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </nav>
+                    <div class="header-right">
+                        <form action="#" class="header-search-form for-des">
+                            <input
+                                    type="search"
+                                    class="form-input"
+                                    placeholder="Tìm món ăn tại đây..."
+                            />
+                            <button type="submit">
+                                <i class="uil uil-search"></i>
+                            </button>
+                        </form>
+                        <a href="javascript:void(0)" class="header-btn header-cart">
+                            <i class="uil uil-shopping-bag"></i>
+                            <span class="cart-number">5</span>
+                        </a>
+                        <a href="login.html" class="header-btn">
+                            <i class="uil uil-user-md"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="viewport">
+    <div class="js-scrool-content">
+        <!-- ABOUT  -->
+        <section class="about-sec section" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="sec-title text-center mb-5">
+                            <p class="sec-sub-title mb-3">About Us</p>
+                            <h2 class="h2-title">
+                                Discover our <span>restaurant story</span>
+                            </h2>
+                            <div class="sec-title-shape mb-4">
+                                <img src="/img/title-shape.svg" alt="" />
+                            </div>
+                            <p>
+                                Được thành lập năm 1997, BK FOODS là một trong những nhà
+                                hàng hàng đầu Việt Nam về chất lượng phục vụ và món ăn. BK
+                                FOODS cam kết chỉ sử dụng những nguyên liệu tươi ngon, chất
+                                lượng nhất. Các món ăn sẽ được chế biến hàng ngày và đảm bảo
+                                nóng hổi khi đem ra bàn phục vụ thực khách. Với gần 30 năm
+                                kinh doanh, BK FOODS không đơn thuần mong muốn phục vụ những
+                                món thức ăn theo quy trình được kiểm duyệt nghiêm khắc, mà
+                                còn mong muốn mang đến cho mọi người không gian ấm áp, sang
+                                trọng để ai cũng được thưởng thức ẩm thực vui vẻ, thoải mái
+                                nhất bên gia đình và bè bạn. Từ những nền tảng này, BK FOODS
+                                luôn ấp ủ trở thành thương hiệu nhà hàng mang đến những món
+                                ăn ngon với hương vị phù hợp cho người Việt bên cạnh mục
+                                tiêu tạo ra một địa điểm ẩm thực góp phần gắn kết gia đình
+                                Việt qua bữa ăn ngon. Và đây cũng chính là tiền đề để BK
+                                FOODS củng cố và phát triển bền vững trong dài hạn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 m-auto">
+                        <div class="about-video">
+                            <div
+                                    class="about-video-img"
+                                    style="background-image: url(/img/about.jpg)"
+                            ></div>
+                            <div class="play-btn-wp">
+                                <a
+                                        href="/img/video.mp4"
+                                        data-fancybox="video"
+                                        class="play-btn"
+                                >
+                                    <i class="uil uil-play"></i>
+                                </a>
+                                <span>Watch The Recipe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUR TEAM -->
+        <section class="our-team section">
+            <div class="sec-wp">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="sec-title text-center mb-5">
+                                <p class="sec-sub-title mb-3">Our Team</p>
+                                <h2 class="h2-title">Đội ngũ đầu bếp</h2>
+                                <div class="sec-title-shape mb-4">
+                                    <img src="/img/title-shape.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row team-slider">
+                        <div class="swiper-wrapper">
+                            <div class="col-lg-4 swiper-slide">
+                                <div class="team-box text-center">
+                                    <div
+                                            style="background-image: url(/img/chef/c1.jpg)"
+                                            class="team-img back-img"
+                                    ></div>
+                                    <h3 class="h3-title">Nguyễn Hồng Phúc</h3>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-youtube"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 swiper-slide">
+                                <div class="team-box text-center">
+                                    <div
+                                            style="background-image: url(/img/chef/c2.jpg)"
+                                            class="team-img back-img"
+                                    ></div>
+                                    <h3 class="h3-title">Vũ Ngọc Đức</h3>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-youtube"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 swiper-slide">
+                                <div class="team-box text-center">
+                                    <div
+                                            style="background-image: url(/img/chef/c3.jpg)"
+                                            class="team-img back-img"
+                                    ></div>
+                                    <h3 class="h3-title">Nguyễn Trí Dũng</h3>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-youtube"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 swiper-slide">
+                                <div class="team-box text-center">
+                                    <div
+                                            style="background-image: url(/img/chef/c4.jpg)"
+                                            class="team-img back-img"
+                                    ></div>
+                                    <h3 class="h3-title">Nguyễn Trọng Giáp</h3>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-youtube"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 swiper-slide">
+                                <div class="team-box text-center">
+                                    <div
+                                            style="background-image: url(/img/chef/c5.jpg)"
+                                            class="team-img back-img"
+                                    ></div>
+                                    <h3 class="h3-title">Nguyễn Hồng Phương</h3>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#"><i class="uil uil-facebook-f"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-youtube"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-wp">
+                            <div class="swiper-button-prev swiper-button">
+                                <i class="uil uil-angle-left"></i>
+                            </div>
+                            <div class="swiper-button-next swiper-button">
+                                <i class="uil uil-angle-right"></i>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer" id="contact">
+            <div class="top-footer section">
+                <div class="sec-wp">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="footer-info">
+                                    <div class="footer-logo">
+                                        <a href="index.html">
+                                            <img src="/img/logo.png" alt="" />
+                                        </a>
+                                    </div>
+                                    <p>Ngõ 60 Thổ Quan, Đống Đa, Hà Nội.</p>
+                                    <div class="social-icon">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-facebook-f"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-github-alt"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <i class="uil uil-youtube"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <div class="footer-flex-box">
+                                    <div class="footer-table-info">
+                                        <h3 class="h3-title">Hoạt động</h3>
+                                        <ul>
+                                            <li>
+                                                <i class="uil uil-clock"></i> Mon-Thurs : 9am - 22pm
+                                            </li>
+                                            <li>
+                                                <i class="uil uil-clock"></i> Fri-Sun : 11am - 22pm
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-menu food-nav-menu">
+                                        <h3 class="h3-title">Thông tin</h3>
+                                        <ul class="column-2">
+                                            <li>
+                                                <a href="index.html">Trang chủ</a>
+                                            </li>
+                                            <li>
+                                                <a href="about.html" class="footer-active-menu"
+                                                >Giới thiệu</a
+                                                >
+                                            </li>
+                                            <li><a href="menu.html">Thực đơn</a></li>
+                                            <li><a href="gallery.html">Trưng bày</a></li>
+                                            <li><a href="blog.html">Blog</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="footer-menu">
+                                        <h3 class="h3-title">Chính sách</h3>
+                                        <ul>
+                                            <li><a href="#">Chính sách hoạt động</a></li>
+                                            <li><a href="#">Chính sách và quy định</a></li>
+                                            <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="copyright-text">
+                                <p>
+                                    Copyright &copy; 2024 <span class="name">HUSTer.</span>All
+                                    Rights Reserved.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<script src="/js/jquery-3.5.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/fontawesome.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/jquery.mixitup.min.js"></script>
+<script src="/js/jquery.fancybox.min.js"></script>
+<script src="/js/parallax.min.js"></script>
+<script src="/js/gsap.min.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<script src="/js/ScrollToPlugin.min.js"></script>
+<script src="/js/smooth-scroll.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

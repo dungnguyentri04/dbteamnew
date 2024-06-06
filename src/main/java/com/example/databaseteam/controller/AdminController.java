@@ -141,11 +141,11 @@ public class AdminController {
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/cart")
+    @GetMapping("/carts")
     public String carts(Model m){
-        m.addAttribute("carts",shoppingCartService.getAllShoppingCart());
-        m.addAttribute("products",productService.getAllProducts());
-        return "/admin/cart";
+//        m.addAttribute("carts",shoppingCartService.getAllShoppingCart());
+//        m.addAttribute("products",productService.getAllProducts());
+        return "admin/carts";
     }
 
     @GetMapping("/orders")

@@ -30,6 +30,6 @@ public class ShoppingCart {
     public ShoppingCart() {
         this.cartItems = new HashSet<>();
         this.totalItems = 0;
-        this.totalPrice = 0;
+        this.totalPrice = 0.0;
     }
 }

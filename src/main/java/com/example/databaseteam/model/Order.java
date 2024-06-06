@@ -9,7 +9,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
@@ -33,5 +32,10 @@ public class Order {
     @OneToOne(cascade = CascadeType.ALL)//cascade : dong bo thao tac giua hai doi tuong
     @JoinColumn(name = "shipping_address_id", referencedColumnName = "id")
     private ShippingAddress shippingAddress;
+
+    public Order(){
+        this.shippingAddress = new ShippingAddress();
+//        this.orders = new ArrayList<>();
+    }
 
 }

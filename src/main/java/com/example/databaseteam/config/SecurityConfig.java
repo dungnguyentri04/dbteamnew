@@ -32,6 +32,7 @@ public class SecurityConfig {
             "/add-to-cart",
             "/checkout",
             "/admin/**",
+            "/deleteUser",
     };
 
     @Bean

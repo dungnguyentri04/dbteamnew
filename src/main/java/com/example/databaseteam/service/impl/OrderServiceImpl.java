@@ -3,6 +3,7 @@ package com.example.databaseteam.service.impl;
 import com.example.databaseteam.model.*;
 import com.example.databaseteam.repository.OrderDetailRepository;
 import com.example.databaseteam.repository.OrderRepository;
+import com.example.databaseteam.repository.ShippingAddressRepository;
 import com.example.databaseteam.service.CartItemsService;
 import com.example.databaseteam.service.OrderService;
 import com.example.databaseteam.service.ShoppingCartService;
@@ -25,6 +26,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ShippingAddressRepository shippingAddressRepository;
+
     @Override
     @Transactional
     public Order save(ShoppingCart cart, ShippingAddress shippingAddress) {
@@ -35,18 +39,20 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalPrice(cart.getTotalPrice());
         order.setOrderDate(new Date());
         order.setQuantity(cart.getTotalItems());
-        order.setShippingAddress(shippingAddress);
         List<OrderDetail> orderDetailList = new ArrayList<>();
         for (CartItem cartItem : cart.getCartItems()){
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrder(order);
             orderDetail.setProduct(cartItem.getProduct());
-            orderDetail.setQuantity(50);
-            orderDetail.setPrice(50.0);
+            orderDetail.setQuantity(cartItem.getQuantity());
+            orderDetail.setPrice(cartItem.getPrice()*cartItem.getQuantity());
             orderDetailRepository.save(orderDetail);//
             orderDetailList.add(orderDetail);
         }
         order.setOrderDetailList(orderDetailList);
+        shippingAddress.setOrder(order);
+        shippingAddressRepository.save(shippingAddress);
+        order.setShippingAddress(shippingAddress);
         shoppingCartService.deleteCartById(cart.getId());
         return orderRepository.save(order);
     }

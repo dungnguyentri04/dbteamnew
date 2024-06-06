@@ -56,6 +56,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         cart.setCartItems(listCartItems);
         cart.setUser(user);
         user.setShoppingCart(cart);
+        cart.setTotalItems(cart.getTotalItems()+1);
+        cart.setTotalPrice(cart.getTotalPrice()+ item.getPrice());
         return shoppingCartRepository.save(cart);//tra ve 1 shoppingcart sau khi luu
     }
 
@@ -73,6 +75,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             cartItemsRepository.save(item);
         }
         cart.setCartItems(listCartItems);
+        cart.setTotalPrice(cart.getTotalPrice()-item.getPrice());
+        cart.setTotalItems(cart.getTotalItems()-1);
         return shoppingCartRepository.save(cart);
     }
 
@@ -106,12 +110,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     @Override
     public void deleteCartById(int id) {
         ShoppingCart cart = shoppingCartRepository.findById(id).orElse(null);
+        System.out.println(cart);
         if(!ObjectUtils.isEmpty(cart) && !ObjectUtils.isEmpty(cart.getCartItems())){
             cartItemsRepository.deleteAll(cart.getCartItems());
         }
-//        cart.setTotalPrice(0);
-//        cart.setTotalItems(0);
-        cart = new ShoppingCart();
+        cart.getCartItems().clear();
+        cart.setTotalPrice(0.0);
+        cart.setTotalItems(0);
         shoppingCartRepository.save(cart);
     }
 

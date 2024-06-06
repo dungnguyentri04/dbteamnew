@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.Principal;
 
 @Controller
 public class HomeController {
@@ -28,13 +29,21 @@ public class HomeController {
     private UserService userService;
 
     @GetMapping("/index")
-    public String index(Model m){
+    public String index(Model m, Principal principal){
+        if (principal!=null){
+            UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            m.addAttribute("username",user.getName());
+        }
         m.addAttribute("products",productService.getAllProducts());
         return "index";
     }
 
     @GetMapping("/product")
-    public String product(Model m){
+    public String product(Model m,Principal principal){
+        if (principal!=null){
+            UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            m.addAttribute("username",user.getName());
+        }
         m.addAttribute("products",productService.getAllProducts());
         return "product";
     }

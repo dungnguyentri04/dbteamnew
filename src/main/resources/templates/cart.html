@@ -25,7 +25,7 @@
 				<div class="row mb-5">
 					<form class="col-md-12" method="post">
 						<div class="site-blocks-table">
-							<table class="table">
+							<table class="table" th:if="${cartItems != null and !#lists.isEmpty(cartItems)}">
 								<thead>
 									<tr>
 										<th class="product-thumbnail">Image</th>
@@ -36,7 +36,7 @@
 										<th class="product-remove">Remove</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody >
 									<tr th:each="cartItem : ${cartItems}">
 										<td class="product-thumbnail">
 											<img th:src="@{'/img/product_img/'+${cartItem.product.image}}" alt="Image" class="img-fluid">
@@ -57,13 +57,17 @@
 											</div>
 
 										</td>
-										<td>$49.00</td>
+										<td>[[${cartItem.product.price*cartItem.quantity}]]</td>
 										<td><a href="#" class="btn btn-black btn-sm updateCart" th:data-action="remove" th:data-id="${cartItem.product.id}">X</a></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</form>
+
+					<div class="alert alert-dark" role="alert" th:unless="${cartItems != null and !#lists.isEmpty(cartItems)}">
+						You don't have any cart!
+					</div>
 				</div>
         
 				<div class="row">
@@ -98,19 +102,19 @@
 									</div>
 								</div>
 								<div class="row mb-3">
-									<div class="col-md-6">
-										<span class="text-black">Subtotal</span>
-									</div>
-									<div class="col-md-6 text-right">
-										<strong class="text-black">$230.00</strong>
-									</div>
+<!--									<div class="col-md-6">-->
+<!--										<span class="text-black">Subtotal</span>-->
+<!--									</div>-->
+<!--									<div class="col-md-6 text-right">-->
+<!--										<strong class="text-black">$230.00</strong>-->
+<!--									</div>-->
 								</div>
 								<div class="row mb-5">
 									<div class="col-md-6">
 										<span class="text-black">Total</span>
 									</div>
 									<div class="col-md-6 text-right">
-										<strong class="text-black">$230.00</strong>
+										<strong class="text-black">$[[${totalPrice}]]</strong>
 									</div>
 								</div>
 

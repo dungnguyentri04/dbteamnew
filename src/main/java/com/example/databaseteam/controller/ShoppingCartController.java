@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Controller
@@ -39,11 +40,25 @@ public class ShoppingCartController {
             return "redirect://login";
         }
         UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+
         ShoppingCart cart = user.getShoppingCart();
         System.out.println(cart);
-        Set<CartItem> cartItems= cart.getCartItems();
-        m.addAttribute("cartItems",cartItems);
-        m.addAttribute("user",user);
+        m.addAttribute("username", user.getName());
+        if (cart!=null) {
+            Set<CartItem> cartItems = cart.getCartItems();
+            m.addAttribute("cartItems", cartItems);
+            m.addAttribute("user", user);
+            m.addAttribute("totalPrice",cart.getTotalPrice());
+        }
+        else {
+            // Xử lý trường hợp cart là null, ví dụ:
+            m.addAttribute("cartItems", new HashSet<>());
+            m.addAttribute("user", user);
+            m.addAttribute("totalPrice",0);
+
+        }
+
+
         return "cart";
     }
 
@@ -59,7 +74,7 @@ public class ShoppingCartController {
         UserDtls user = userService.getUserDtlsByEmail(principal.getName());
         Product product = productService.getProductById(id);
         ShoppingCart shoppingCart = shoppingCartService.addToCart(product,user);
-        return "index";
+        return "redirect:/product";
     }
 
     @PostMapping(value = "/update-cart")

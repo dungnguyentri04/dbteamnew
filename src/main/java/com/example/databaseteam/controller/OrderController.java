@@ -29,12 +29,13 @@ public class OrderController {
 
     @GetMapping("/checkout")
     public String checkout(Principal principal, Model m){
-//        if (principal==null){
-//            return "redirect://login";
-//        }
+        if (principal==null){
+            return "redirect://login";
+        }
         UserDtls user = userService.getUserDtlsByEmail(principal.getName());
         ShoppingCart cart = user.getShoppingCart();
         m.addAttribute("cart",cart);
+        m.addAttribute("username", user.getName());
         return "checkout";
     }
 
@@ -46,14 +47,14 @@ public class OrderController {
         if (principal == null) {
             return "redirect:/login";
         } else {
-            System.out.println("123");
-            System.out.println(shippingAddress.getName());
+//            System.out.println("123");
+//            System.out.println(shippingAddress.getName());
             UserDtls user = userService.getUserDtlsByEmail(principal.getName());
             ShoppingCart cart = user.getShoppingCart();
+            System.out.println(cart.getId());
             Order order = orderService.save(cart,shippingAddress);
-
-            ShippingAddress shippingInfo = shippingAddressService.save(shippingAddress,order);
-            return "index";
+//            ShippingAddress shippingInfo = shippingAddressService.save(shippingAddress,order);
+            return "redirect:/index";
         }
     }
 
