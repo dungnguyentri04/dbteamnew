@@ -58,6 +58,16 @@ public class HomeController {
         return "register";
     }
 
+    @GetMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+    @GetMapping("/gallery")
+    public String gallery(){
+        return "gallery";
+    }
+
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute UserDtls user, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {

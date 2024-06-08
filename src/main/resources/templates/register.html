@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       th:replace="~{base::layout(~{::section})}">
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
-</head>
-<body>
     <section>
         <div class="container mt-5 p-5">
             <div class="row">
@@ -14,7 +9,7 @@
                     <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
                         <div class="card-header text-center">
                             <p class="fs-4 text-center">Register</p>
-                            <th:block th:if="${session.succMsg}">
+                            <th:block th:if="${session.successMsg}">
                                 <p class="text-success fw-bold">[[${session.successMsg}]]</p>
                                 <th:block ></th:block>
                             </th:block>
@@ -73,5 +68,4 @@
         </div>
     </section>
 
-</body>
 </html>

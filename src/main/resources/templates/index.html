@@ -1,535 +1,402 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="/img/favicon.png" type="">
-
-  <title> Feane </title>
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome style -->
-  <link href="/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="/css/responsive.css" rel="stylesheet" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giới thiệu</title>
+  <link
+          rel="stylesheet"
+          href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+  />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/css/style3.css" />
 </head>
 
-<body>
-  <div class="hero_area">
-    <div class="bg-box">
-      <img src="/img/hero-bg.jpg" alt="">
-    </div>
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span> Feane</span>
-          </a>
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/product">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="book.html">Book Table</a>
-              </li>
+<body class="body-fixed">
+<header class="site-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        <div class="header-logo">
+          <a href="index.html">
+            <img
+                    src="/img/logo.png"
+                    width="160"
+                    height="36"
+                    alt="Logo"
+            /></a>
+        </div>
+      </div>
+      <div class="col-lg-10">
+        <div class="main-navigation">
+          <button class="menu-toggle"><span></span><span></span></button>
+          <nav class="header-menu">
+            <ul class="menu food-nav-menu">
+              <li><a th:href="@{/index}">Trang chủ</a></li>
+              <li><a th:href="@{/about}">Giới thiệu</a></li>
+              <li><a th:href="@{/product}">Thực đơn</a></li>
+              <li><a th:href="@{/gallery}">Trưng bày</a></li>
+              <li><a th:href="@{/blog}">Blog</a></li>
             </ul>
-            <div class="user_option">
-<!--              <a href="" class="user_link">-->
-<!--                <i class="fa fa-user" aria-hidden="true"></i>-->
-<!--              </a>-->
-              <a class="cart_link" th:href="@{/cart}">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-              </form>
-              <a th:href="@{/login}" class="order_online" th:unless="${username != null}">Log in</a>
-              <a th:href="@{/logout}" class="order_online" th:if="${username != null}">[[${username}]]</a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>Fast Food Restaurant</h1>
-                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">Order Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>Fast Food Restaurant</h1>
-                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">Order Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>Fast Food Restaurant</h1>
-                    <p>Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.</p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">Order Now</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <ol class="carousel-indicators">
-            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-          </ol>
-        </div>
-      </div>
-
-    </section>
-    <!-- end slider section -->
-  </div>
-
-  <!-- offer section -->
-
-  <section class="offer_section layout_padding-bottom">
-    <div class="offer_container">
-      <div class="container ">
-        <div class="row">
-          <div class="col-md-6  ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="/img/o1.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>Tasty Thursdays</h5>
-                <h6><span>20%</span> Off</h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6  ">
-            <div class="box ">
-              <div class="img-box"><img src="/img/o2.jpg" alt=""></div>
-              <div class="detail-box">
-                <h5>Pizza Days</h5>
-                <h6><span>15%</span> Off</h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-
-                  </svg>
-                </a>
-              </div>
-            </div>
+          </nav>
+          <div class="header-right">
+            <form action="#" class="header-search-form for-des">
+              <input
+                      type="search"
+                      class="form-input"
+                      placeholder="Tìm món ăn tại đây..."
+              />
+              <button type="submit">
+                <i class="uil uil-search"></i>
+              </button>
+            </form>
+            <a href="javascript:void(0)" class="header-btn header-cart">
+              <i class="uil uil-shopping-bag"></i>
+              <span class="cart-number">5</span>
+            </a>
+            <a href="login.html" class="header-btn">
+              <i class="uil uil-user-md"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- end offer section -->
-
-  <!-- food section -->
-
-  <section class="food_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Menu
-        </h2>
+<div class="viewport">
+  <div class="js-scrool-content">
+    <!-- ABOUT  -->
+    <section class="about-sec section" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="sec-title text-center mb-5">
+              <p class="sec-sub-title mb-3">About Us</p>
+              <h2 class="h2-title">
+                Discover our <span>restaurant story</span>
+              </h2>
+              <div class="sec-title-shape mb-4">
+                <img src="/img/title-shape.svg" alt="" />
+              </div>
+              <p>
+                Được thành lập năm 1997, BK FOODS là một trong những nhà
+                hàng hàng đầu Việt Nam về chất lượng phục vụ và món ăn. BK
+                FOODS cam kết chỉ sử dụng những nguyên liệu tươi ngon, chất
+                lượng nhất. Các món ăn sẽ được chế biến hàng ngày và đảm bảo
+                nóng hổi khi đem ra bàn phục vụ thực khách. Với gần 30 năm
+                kinh doanh, BK FOODS không đơn thuần mong muốn phục vụ những
+                món thức ăn theo quy trình được kiểm duyệt nghiêm khắc, mà
+                còn mong muốn mang đến cho mọi người không gian ấm áp, sang
+                trọng để ai cũng được thưởng thức ẩm thực vui vẻ, thoải mái
+                nhất bên gia đình và bè bạn. Từ những nền tảng này, BK FOODS
+                luôn ấp ủ trở thành thương hiệu nhà hàng mang đến những món
+                ăn ngon với hương vị phù hợp cho người Việt bên cạnh mục
+                tiêu tạo ra một địa điểm ẩm thực góp phần gắn kết gia đình
+                Việt qua bữa ăn ngon. Và đây cũng chính là tiền đề để BK
+                FOODS củng cố và phát triển bền vững trong dài hạn.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 m-auto">
+            <div class="about-video">
+              <div
+                      class="about-video-img"
+                      style="background-image: url(/img/about.jpg)"
+              ></div>
+              <div class="play-btn-wp">
+                <a
+                        href="/img/video.mp4"
+                        data-fancybox="video"
+                        class="play-btn"
+                >
+                  <i class="uil uil-play"></i>
+                </a>
+                <span>Watch The Recipe</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
-      </ul>
+    <!-- OUR TEAM -->
+    <section class="our-team section">
+      <div class="sec-wp">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="sec-title text-center mb-5">
+                <p class="sec-sub-title mb-3">Our Team</p>
+                <h2 class="h2-title">Đội ngũ đầu bếp</h2>
+                <div class="sec-title-shape mb-4">
+                  <img src="/img/title-shape.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row team-slider">
+            <div class="swiper-wrapper">
+              <div class="col-lg-4 swiper-slide">
+                <div class="team-box text-center">
+                  <div
+                          style="background-image: url(/img/chef/c1.jpg)"
+                          class="team-img back-img"
+                  ></div>
+                  <h3 class="h3-title">Nguyễn Hồng Phúc</h3>
+                  <div class="social-icon">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 swiper-slide">
+                <div class="team-box text-center">
+                  <div
+                          style="background-image: url(/img/chef/c2.jpg)"
+                          class="team-img back-img"
+                  ></div>
+                  <h3 class="h3-title">Vũ Ngọc Đức</h3>
+                  <div class="social-icon">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 swiper-slide">
+                <div class="team-box text-center">
+                  <div
+                          style="background-image: url(/img/chef/c3.jpg)"
+                          class="team-img back-img"
+                  ></div>
+                  <h3 class="h3-title">Nguyễn Trí Dũng</h3>
+                  <div class="social-icon">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 swiper-slide">
+                <div class="team-box text-center">
+                  <div
+                          style="background-image: url(/img/chef/c4.jpg)"
+                          class="team-img back-img"
+                  ></div>
+                  <h3 class="h3-title">Nguyễn Trọng Giáp</h3>
+                  <div class="social-icon">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 swiper-slide">
+                <div class="team-box text-center">
+                  <div
+                          style="background-image: url(/img/chef/c5.jpg)"
+                          class="team-img back-img"
+                  ></div>
+                  <h3 class="h3-title">Nguyễn Hồng Phương</h3>
+                  <div class="social-icon">
+                    <ul>
+                      <li>
+                        <a href="#"><i class="uil uil-facebook-f"></i></a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-wp">
+              <div class="swiper-button-prev swiper-button">
+                <i class="uil uil-angle-left"></i>
+              </div>
+              <div class="swiper-button-next swiper-button">
+                <i class="uil uil-angle-right"></i>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <div class="filters-content">
-        <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza" th:each="product:${products}">
-            <div class="box">
-              <div>
-                <div class="img-box"><img th:src="@{'/img/product_img/'+${product.image}}" alt=""></div>
-                <div class="detail-box">
-                  <h5>[[${product.title}]]</h5>
-                  <p>[[${product.description}]]</p>
-                  <div class="options">
-                    <h6>[[${product.price}]]</h6>
-                    <a >
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                      <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                      <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-
-                  </svg>
+    <footer class="site-footer" id="contact">
+      <div class="top-footer section">
+        <div class="sec-wp">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="footer-info">
+                  <div class="footer-logo">
+                    <a href="index.html">
+                      <img src="/img/logo.png" alt="" />
                     </a>
                   </div>
+                  <p>Ngõ 60 Thổ Quan, Đống Đa, Hà Nội.</p>
+                  <div class="social-icon">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-facebook-f"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-instagram"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-github-alt"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="uil uil-youtube"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="footer-flex-box">
+                  <div class="footer-table-info">
+                    <h3 class="h3-title">Hoạt động</h3>
+                    <ul>
+                      <li>
+                        <i class="uil uil-clock"></i> Mon-Thurs : 9am - 22pm
+                      </li>
+                      <li>
+                        <i class="uil uil-clock"></i> Fri-Sun : 11am - 22pm
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="footer-menu food-nav-menu">
+                    <h3 class="h3-title">Thông tin</h3>
+                    <ul class="column-2">
+                      <li>
+                        <a th:href="@{/index}" class="footer-active-menu"
+                        >Trang chủ</a
+                        >
+                      </li>
+                      <li><a th:href="@{/about}">Giới thiệu</a></li>
+                      <li><a th:href="@{/product}">Thực đơn</a></li>
+                      <li><a th:href="@{/gallery}">Trưng bày</a></li>
+                      <li><a th:href="@{/blog}">Blog</a></li>
+                      <li><a >Blog</a></li>
+                    </ul>
+                  </div>
+                  <div class="footer-menu">
+                    <h3 class="h3-title">Chính sách</h3>
+                    <ul>
+                      <li><a href="#">Chính sách hoạt động</a></li>
+                      <li><a href="#">Chính sách và quy định</a></li>
+                      <li><a href="#">Chính sách bảo mật thông tin</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="btn-box">
-        <a href="">View More</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- end food section -->
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box"><img src="/img/out-img.png" alt=""></div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>We Are Feane</h2>
-            </div>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
-            </p>
-            <a href="">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end about section -->
-
-  <!-- book section -->
-  <section class="book_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Book A Table
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div><input type="text" class="form-control" placeholder="Your Name" /></div>
-              <div><input type="text" class="form-control" placeholder="Phone Number" /></div>
-              <div><input type="email" class="form-control" placeholder="Your Email" /></div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>How many persons?</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
-                  <option value="">4</option>
-                  <option value="">5</option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end book section -->
-
-  <!-- client section -->
-
-  <section class="client_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>What Says Our Customers</h2>
-      </div>
-      <div class="carousel-wrap row ">
-        <div class="owl-carousel client_owl-carousel">
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                <h6>Moana Michell</h6>
-                <p>magna aliqua</p>
-              </div>
-              <div class="img-box"><img src="/img/client1.jpg" alt="" class="box-img"></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                <h6>Mike Hamell</h6>
-                <p>magna aliqua</p>
-              </div>
-              <div class="img-box">
-                <img src="/img/client2.jpg" alt="" class="box-img">
+      <div class="bottom-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <div class="copyright-text">
+                <p>
+                  Copyright &copy; 2024 <span class="name">HUSTer.</span>All
+                  Rights Reserved.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
+  </div>
+</div>
 
-  <!-- end client section -->
-
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-col">
-          <div class="footer_contact">
-            <h4>Contact Us</h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>Location</span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>Call +01 1234567890</span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>demo@gmail.com</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 footer-col">
-          <div class="footer_detail">
-            <a href="" class="footer-logo">Feane</a>
-            <p>Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with</p>
-            <div class="footer_social">
-              <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-              <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
-              <a href=""><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 footer-col">
-          <h4>Opening Hours</h4>
-          <p>Everyday</p>
-          <p>10.00 Am -10.00 Pm</p>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-  <!-- footer section -->
-
-  <!-- jQery -->
-  <script src="/js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <!-- bootstrap js -->
-  <script src="/js/bootstrap.js"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- isotope js -->
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <!-- custom js -->
-  <script src="/js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-  <!-- End Google Map -->
-
+<!--<script src="/js/jquery-3.5.1.min.js"></script>-->
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/fontawesome.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/jquery.mixitup.min.js"></script>
+<script src="/js/jquery.fancybox.min.js"></script>
+<script src="/js/parallax.min.js"></script>
+<script src="/js/gsap.min.js"></script>
+<script src="/js/ScrollTrigger.min.js"></script>
+<script src="/js/ScrollToPlugin.min.js"></script>
+<script src="/js/smooth-scroll.js"></script>
+<script src="/js/main.js"></script>
 </body>
-
 </html>

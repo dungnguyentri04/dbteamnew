@@ -33,6 +33,8 @@ public class SecurityConfig {
             "/checkout",
             "/admin/**",
             "/deleteUser",
+            "/about",
+            "/gallery",
     };
 
     @Bean
