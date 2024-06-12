@@ -35,25 +35,25 @@
                                 <i class="uil uil-star"></i>
                             </div>
                             <div class="dish-title">
-                                <h3 class="h3-title">Dimsum</h3>
-                                <p>80 calories</p>
+                                <h3 class="h3-title">[[${product.title}]]</h3>
+                                <p>[[${product.description}]]</p>
                             </div>
                             <div class="dish-info">
                                 <ul>
                                     <li>
                                         <p>Type</p>
-                                        <b>Bánh mặn</b>
+                                        <b>Food </b>
                                     </li>
                                     <li>
-                                        <p>Persons</p>
-                                        <b>2</b>
+                                        <p>Stock</p>
+                                        <b>10</b>
                                     </li>
                                 </ul>
                             </div>
                             <div class="dist-bottom-row">
                                 <ul>
                                     <li>
-                                        <b>100.000VNĐ</b>
+                                        <b>[[${product.price}]]</b>
                                     </li>
                                     <li>
                                         <a th:href="@{/add-to-cart(id=${product.id})}">

@@ -99,7 +99,7 @@ public class AdminController {
     }
 
     @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute UserDtls user, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
+    public String saveUser(@ModelAttribute UserDtls user, @RequestParam("file") MultipartFile file, HttpSession session) throws IOException {
         String imageName = file.isEmpty()?"default.jpg":file.getOriginalFilename();
         user.setProfileImage(imageName);
         UserDtls saveUser = userService.saveUser(user);
@@ -141,11 +141,11 @@ public class AdminController {
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/carts")
+    @GetMapping("/cartList")
     public String carts(Model m){
 //        m.addAttribute("carts",shoppingCartService.getAllShoppingCart());
 //        m.addAttribute("products",productService.getAllProducts());
-        return "admin/carts";
+        return "admin/cartList";
     }
 
     @GetMapping("/orders")

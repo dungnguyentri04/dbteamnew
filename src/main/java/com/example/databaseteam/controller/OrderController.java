@@ -36,6 +36,7 @@ public class OrderController {
         ShoppingCart cart = user.getShoppingCart();
         m.addAttribute("cart",cart);
         m.addAttribute("username", user.getName());
+        m.addAttribute("totalItem",cart.getTotalItems());
         return "checkout";
     }
 

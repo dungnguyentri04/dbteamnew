@@ -1,5 +1,6 @@
 package com.example.databaseteam.controller;
 
+import com.example.databaseteam.model.ShoppingCart;
 import com.example.databaseteam.model.UserDtls;
 import com.example.databaseteam.service.ProductService;
 import com.example.databaseteam.service.UserService;
@@ -31,8 +32,14 @@ public class HomeController {
     @GetMapping("/index")
     public String index(Model m, Principal principal){
         if (principal!=null){
+
             UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            ShoppingCart cart = user.getShoppingCart();
             m.addAttribute("username",user.getName());
+            if (cart!=null) {
+                m.addAttribute("totalItem", cart.getTotalItems());
+            }
+            else  m.addAttribute("totalItem",0);
         }
         m.addAttribute("products",productService.getAllProducts());
         return "index";
@@ -42,7 +49,12 @@ public class HomeController {
     public String product(Model m,Principal principal){
         if (principal!=null){
             UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            ShoppingCart cart = user.getShoppingCart();
             m.addAttribute("username",user.getName());
+            if (cart!=null) {
+                m.addAttribute("totalItem", cart.getTotalItems());
+            }
+            else m.addAttribute("totalItem",0);
         }
         m.addAttribute("products",productService.getAllProducts());
         return "product";
@@ -59,12 +71,30 @@ public class HomeController {
     }
 
     @GetMapping("/about")
-    public String about(){
+    public String about(Principal principal,Model m){
+        if (principal!=null){
+            UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            ShoppingCart cart = user.getShoppingCart();
+            m.addAttribute("username",user.getName());
+            if (cart!=null) {
+                m.addAttribute("totalItem", cart.getTotalItems());
+            }
+            else m.addAttribute("totalItem",0);
+        }
         return "about";
     }
 
     @GetMapping("/gallery")
-    public String gallery(){
+    public String gallery(Principal principal,Model m){
+        if (principal!=null){
+            UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            ShoppingCart cart = user.getShoppingCart();
+            m.addAttribute("username",user.getName());
+            if (cart!=null) {
+                m.addAttribute("totalItem", cart.getTotalItems());
+            }
+            else m.addAttribute("totalItem",0);
+        }
         return "gallery";
     }
 

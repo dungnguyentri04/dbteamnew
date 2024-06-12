@@ -75,9 +75,9 @@
                                 <i class="uil uil-search"></i>
                             </button>
                         </form>
-                        <a href="javascript:void(0)" class="header-btn header-cart">
+                        <a th:href="@{/cart}" class="header-btn header-cart">
                             <i class="uil uil-shopping-bag"></i>
-                            <span class="cart-number">5</span>
+                            <span class="cart-number" th:if="${username}!=null">[[${totalItem}]]</span>
                         </a>
                         <a href="login.html" class="header-btn">
                             <i class="uil uil-user-md"></i>

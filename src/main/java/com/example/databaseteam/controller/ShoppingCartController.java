@@ -49,12 +49,14 @@ public class ShoppingCartController {
             m.addAttribute("cartItems", cartItems);
             m.addAttribute("user", user);
             m.addAttribute("totalPrice",cart.getTotalPrice());
+            m.addAttribute("totalItem",cart.getTotalItems());
         }
         else {
             // Xử lý trường hợp cart là null, ví dụ:
             m.addAttribute("cartItems", new HashSet<>());
             m.addAttribute("user", user);
             m.addAttribute("totalPrice",0);
+            m.addAttribute("totalItem",0);
 
         }
 
