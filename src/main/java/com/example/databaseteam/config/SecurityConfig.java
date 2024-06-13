@@ -35,6 +35,7 @@ public class SecurityConfig {
             "/deleteUser",
             "/about",
             "/gallery",
+            "/blog",
     };
 
     @Bean

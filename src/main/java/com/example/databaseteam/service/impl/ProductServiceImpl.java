@@ -2,6 +2,9 @@ package com.example.databaseteam.service.impl;
 
 import com.example.databaseteam.model.Product;
 import com.example.databaseteam.repository.ProductRepository;
+import com.example.databaseteam.service.CartItemsService;
+import com.example.databaseteam.service.OrderDetailService;
+import com.example.databaseteam.service.OrderService;
 import com.example.databaseteam.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -22,6 +25,12 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private OrderDetailService orderDetailService;
+
+    @Autowired
+    private CartItemsService cartItemsService;
+
     @Override
     public Product saveProduct(Product product) {
         return productRepository.save(product);// return product after save product into database
@@ -36,6 +45,8 @@ public class ProductServiceImpl implements ProductService {
     public Boolean deleteProduct(Integer id) {
         Product product = productRepository.findById(id).orElse(null);
         if (!ObjectUtils.isEmpty(product)){
+            orderDetailService.deleteOrderDetailByProductId(id);
+            cartItemsService.deleteCartItemByProductId(id);
             productRepository.delete(product);
             return true;
         }

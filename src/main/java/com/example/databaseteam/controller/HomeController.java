@@ -84,6 +84,20 @@ public class HomeController {
         return "about";
     }
 
+    @GetMapping("/blog")
+    public String blog(Principal principal,Model m){
+        if (principal!=null){
+            UserDtls user = userService.getUserDtlsByEmail(principal.getName());
+            ShoppingCart cart = user.getShoppingCart();
+            m.addAttribute("username",user.getName());
+            if (cart!=null) {
+                m.addAttribute("totalItem", cart.getTotalItems());
+            }
+            else m.addAttribute("totalItem",0);
+        }
+        return "blog";
+    }
+
     @GetMapping("/gallery")
     public String gallery(Principal principal,Model m){
         if (principal!=null){

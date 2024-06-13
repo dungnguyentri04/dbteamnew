@@ -24,7 +24,7 @@ public class ShoppingCart {
     private UserDtls user;
     private double totalPrice;
     private int totalItems;
-    @OneToMany(cascade = CascadeType.DETACH,mappedBy = "cart")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "cart")
     private Set<CartItem> cartItems;
 
     public ShoppingCart() {

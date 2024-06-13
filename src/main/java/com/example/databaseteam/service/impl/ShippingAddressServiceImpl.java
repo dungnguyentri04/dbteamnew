@@ -14,12 +14,12 @@ public class ShippingAddressServiceImpl implements ShippingAddressService {
     @Autowired
     private ShippingAddressRepository shippingAddressRepository;
 
-    @Override
-    public ShippingAddress save(ShippingAddress shippingAddress, Order order) {
-        shippingAddress.setOrder(order);
-        System.out.println("hello");
-        return shippingAddressRepository.save(shippingAddress);
-    }
+//    @Override
+//    public ShippingAddress save(ShippingAddress shippingAddress, Order order) {
+//        shippingAddress.setOrder(order);
+//        System.out.println("hello");
+//        return shippingAddressRepository.save(shippingAddress);
+//    }
 
     @Override
     public List<ShippingAddress> getAllShippingAddress() {

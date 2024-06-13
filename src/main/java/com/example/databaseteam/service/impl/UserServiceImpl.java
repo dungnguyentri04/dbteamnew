@@ -1,8 +1,10 @@
 package com.example.databaseteam.service.impl;
 
+import com.example.databaseteam.model.BookTable;
 import com.example.databaseteam.model.Product;
 import com.example.databaseteam.model.UserDtls;
 import com.example.databaseteam.repository.UserRepository;
+import com.example.databaseteam.service.BookTableService;
 import com.example.databaseteam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -25,6 +27,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private BookTableService bookTableService;
 
     @Override
     public UserDtls saveUser(UserDtls user) {
@@ -76,6 +81,7 @@ public class UserServiceImpl implements UserService {
     public Boolean deleteUser(Integer id) {
         UserDtls user = userRepository.findById(id).orElse(null);
         if (!ObjectUtils.isEmpty(user)){
+            bookTableService.deleteBookTableByUserId(id);
             userRepository.delete(user);
             return true;
         }
