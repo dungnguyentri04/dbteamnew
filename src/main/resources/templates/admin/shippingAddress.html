@@ -18,7 +18,7 @@
   <div class="table-wrapper">
     <div class="table-title">
       <div class="row">
-        <div class="col-sm-6"><h2>Manage <b>Carts</b></h2></div>
+        <div class="col-sm-6"><h2>Manage <b>ShippingAddress</b></h2></div>
         <div class="col-sm-6">
           <a href="#deleteShippingAddressForms" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
         </div>
@@ -34,7 +34,7 @@
                             <label for="selectAll"></label>
                         </span>
         </th>
-        <th>Number</th>
+        <th>Shipping Id</th>
         <th>Name</th>
         <th>Address</th>
         <th>Email</th>
@@ -51,7 +51,7 @@
                             <label for="checkbox1"></label>
                         </span>
         </td>
-        <td>1</td>
+        <td>[[${shipping.id}]]</td>
         <td>[[${shipping.name}]]</td>
         <td>[[${shipping.address}]]</td>
         <td>[[${shipping.email}]]</td>

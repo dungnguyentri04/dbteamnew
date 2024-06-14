@@ -5,32 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BK FOODS VIETNAM</title>
-    <link
-            rel="stylesheet"
-            href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
-    />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"/>
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/style3.css" />
-
-
-
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-
     <!--owl slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
     <!-- nice select  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
     <!-- font awesome style -->
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
-
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet"/>
     <!-- responsive style -->
     <link href="/css/responsive.css" rel="stylesheet"/>
-
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="/css/tiny-slider.css" rel="stylesheet">
@@ -43,13 +34,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="header-logo">
-                    <a href="index.html">
-                        <img
-                                src="/img/logo.png"
-                                width="160"
-                                height="36"
-                                alt="Logo"
-                        /></a>
+                    <a href="index.html"><img src="/img/logo.png" width="160" height="36" alt="Logo"/></a>
                 </div>
             </div>
             <div class="col-lg-10">
@@ -66,22 +51,14 @@
                     </nav>
                     <div class="header-right">
                         <form action="#" class="header-search-form for-des">
-                            <input
-                                    type="search"
-                                    class="form-input"
-                                    placeholder="Tìm món ăn tại đây..."
-                            />
-                            <button type="submit">
-                                <i class="uil uil-search"></i>
-                            </button>
+                            <input type="search" class="form-input" placeholder="Tìm món ăn tại đây..."/>
+                            <button type="submit"><i class="uil uil-search"></i></button>
                         </form>
                         <a th:href="@{/cart}" class="header-btn header-cart">
                             <i class="uil uil-shopping-bag"></i>
                             <span class="cart-number" th:if="${username}!=null">[[${totalItem}]]</span>
                         </a>
-                        <a href="login.html" class="header-btn">
-                            <i class="uil uil-user-md"></i>
-                        </a>
+                        <a href="login.html" class="header-btn"><i class="uil uil-user-md"></i></a>
                     </div>
                 </div>
             </div>
@@ -90,13 +67,7 @@
 </header>
 
 <div class="viewport">
-    <div class="js-scrool-content" th:replace = "${content}" >
-
-        <!-- BANNER -->
-
-
-    </div>
-
+    <div class="js-scrool-content" th:replace = "${content}" ></div>
 </div>
 
 <footer class="site-footer" id="contact">
@@ -107,33 +78,15 @@
                     <div class="col-lg-4">
                         <div class="footer-info">
                             <div class="footer-logo">
-                                <a href="index.html">
-                                    <img src="/img/logo.png" alt="" />
-                                </a>
+                                <a href="index.html"><img src="/img/logo.png" alt="" /></a>
                             </div>
                             <p>Ngõ 60 Thổ Quan, Đống Đa, Hà Nội.</p>
                             <div class="social-icon">
                                 <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="uil uil-facebook-f"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="uil uil-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="uil uil-github-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="uil uil-youtube"></i>
-                                        </a>
-                                    </li>
+                                    <li><a href="#"><i class="uil uil-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-instagram"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-github-alt"></i></a></li>
+                                    <li><a href="#"><i class="uil uil-youtube"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -143,22 +96,14 @@
                             <div class="footer-table-info">
                                 <h3 class="h3-title">Hoạt động</h3>
                                 <ul>
-                                    <li>
-                                        <i class="uil uil-clock"></i> Mon-Thurs : 9am - 22pm
-                                    </li>
-                                    <li>
-                                        <i class="uil uil-clock"></i> Fri-Sun : 11am - 22pm
-                                    </li>
+                                    <li><i class="uil uil-clock"></i> Mon-Thurs : 9am - 22pm</li>
+                                    <li><i class="uil uil-clock"></i> Fri-Sun : 11am - 22pm</li>
                                 </ul>
                             </div>
                             <div class="footer-menu food-nav-menu">
                                 <h3 class="h3-title">Thông tin</h3>
                                 <ul class="column-2">
-                                    <li>
-                                        <a th:href="@{/index}" class="footer-active-menu"
-                                        >Trang chủ</a
-                                        >
-                                    </li>
+                                    <li><a th:href="@{/index}" class="footer-active-menu">Trang chủ</a></li>
                                     <li><a th:href="@{/about}">Giới thiệu</a></li>
                                     <li><a th:href="@{/product}">Thực đơn</a></li>
                                     <li><a th:href="@{/gallery}">Trưng bày</a></li>
@@ -184,10 +129,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="copyright-text">
-                        <p>
-                            Copyright &copy; 2024 <span class="name">HUSTer.</span>All
-                            Rights Reserved.
-                        </p>
+                        <p>Copyright &copy; 2024 <span class="name">HUSTer.</span>All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
@@ -208,18 +150,13 @@
 <script src="/js/ScrollToPlugin.min.js"></script>
 <script src="/js/smooth-scroll.js"></script>
 <script src="/js/main.js"></script>
-
-
-
 <script src="/js/jquery-3.4.1.min.js"></script>
 <!-- popper js -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- bootstrap js -->
 <script src="/js/bootstrap.js"></script>
 <!-- owl slider -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <!-- isotope js -->
 <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
 <!-- nice select -->

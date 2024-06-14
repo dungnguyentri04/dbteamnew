@@ -59,8 +59,6 @@ public class ShoppingCartController {
             m.addAttribute("totalItem",0);
 
         }
-
-
         return "cart";
     }
 
@@ -99,7 +97,6 @@ public class ShoppingCartController {
         }
         return "cart";
     }
-
 
     @Data
     public static class UpdateCartRequest {

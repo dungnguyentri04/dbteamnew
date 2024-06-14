@@ -141,12 +141,6 @@ public class AdminController {
         return "redirect:/admin/users";
     }
 
-    @GetMapping("/cartList")
-    public String carts(Model m){
-//        m.addAttribute("carts",shoppingCartService.getAllShoppingCart());
-//        m.addAttribute("products",productService.getAllProducts());
-        return "admin/cartList";
-    }
 
     @GetMapping("/orders")
     public String orders(Model m){

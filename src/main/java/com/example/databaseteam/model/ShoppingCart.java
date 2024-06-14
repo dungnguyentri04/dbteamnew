@@ -19,11 +19,15 @@ public class ShoppingCart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "shopping_cart_id")
     private int id;
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDtls user;
+
     private double totalPrice;
+
     private int totalItems;
+
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "cart")
     private Set<CartItem> cartItems;
 

@@ -19,12 +19,16 @@ public class BookTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
+
     private String email;
+
     private int number;
+
     private String phone;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)

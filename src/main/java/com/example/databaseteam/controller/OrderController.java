@@ -1,9 +1,6 @@
 package com.example.databaseteam.controller;
 
-import com.example.databaseteam.model.Order;
-import com.example.databaseteam.model.ShippingAddress;
-import com.example.databaseteam.model.ShoppingCart;
-import com.example.databaseteam.model.UserDtls;
+import com.example.databaseteam.model.*;
 import com.example.databaseteam.repository.UserRepository;
 import com.example.databaseteam.service.OrderService;
 import com.example.databaseteam.service.ShippingAddressService;
@@ -15,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Set;
 
 @Controller
 public class OrderController {
@@ -34,9 +32,11 @@ public class OrderController {
         }
         UserDtls user = userService.getUserDtlsByEmail(principal.getName());
         ShoppingCart cart = user.getShoppingCart();
-        m.addAttribute("cart",cart);
+        Set<CartItem> cartItems = cart.getCartItems();
+        m.addAttribute("cartItems",cartItems);
         m.addAttribute("username", user.getName());
         m.addAttribute("totalItem",cart.getTotalItems());
+        m.addAttribute("totalPrice",cart.getTotalPrice());
         return "checkout";
     }
 
@@ -48,13 +48,10 @@ public class OrderController {
         if (principal == null) {
             return "redirect:/login";
         } else {
-//            System.out.println("123");
-//            System.out.println(shippingAddress.getName());
             UserDtls user = userService.getUserDtlsByEmail(principal.getName());
             ShoppingCart cart = user.getShoppingCart();
             System.out.println(cart.getId());
             Order order = orderService.save(cart,shippingAddress);
-//            ShippingAddress shippingInfo = shippingAddressService.save(shippingAddress,order);
             return "redirect:/index";
         }
     }

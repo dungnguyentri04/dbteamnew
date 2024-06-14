@@ -32,7 +32,6 @@ public class HomeController {
     @GetMapping("/index")
     public String index(Model m, Principal principal){
         if (principal!=null){
-
             UserDtls user = userService.getUserDtlsByEmail(principal.getName());
             ShoppingCart cart = user.getShoppingCart();
             m.addAttribute("username",user.getName());

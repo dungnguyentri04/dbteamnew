@@ -23,7 +23,9 @@ public class OrderDetail {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
+
     private int quantity;
+
     private Double price;
 
     public OrderDetail() {

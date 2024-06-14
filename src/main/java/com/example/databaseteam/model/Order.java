@@ -16,10 +16,15 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private Date orderDate;
+
     private Double totalPrice;
+
     private int quantity;
+
     private String paymentMethod;
+
     private boolean isAccept;
 
     @ManyToOne(fetch = FetchType.EAGER)

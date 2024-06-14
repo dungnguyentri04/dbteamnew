@@ -1,10 +1,4 @@
-<!-- /*
-* Bootstrap 5
-* Template Name: Furni
-* Template Author: Untree.co
-* Template URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/ -->
+
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
 	  th:replace="~{base::layout(~{::section})}">
@@ -35,20 +29,19 @@
 										<td class="product-name">
 											<h2 class="h5 text-black">[[${cartItem.product.title}]]</h2>
 										</td>
-										<td>[[${cartItem.product.price}]]</td>
+										<td>$[[${cartItem.product.price}]]</td>
 										<td>
-											<div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
+											<div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;margin: auto">
 												<div class="input-group-prepend">
-													<button class="btn btn-outline-black decrease updateCart" type="button" th:data-action="remove" th:data-id="${cartItem.product.id}">&minus;</button>
+													<button class="btn btn-outline-black decrease updateCart" type="button" th:data-action="delete" th:data-id="${cartItem.product.id}">&minus;</button>
 												</div>
-												<input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+												<input type="text" class="form-control text-center quantity-amount" th:value="${cartItem.quantity}" aria-describedby="button-addon1" readonly>
 												<div class="input-group-append">
-													<button class="btn btn-outline-black increase updateCart" type="button" th:data-action="remove" th:data-id="${cartItem.product.id}">&plus;</button>
+													<button class="btn btn-outline-black increase updateCart" type="button" th:data-action="update" th:data-id="${cartItem.product.id}">&plus;</button>
 												</div>
 											</div>
-
 										</td>
-										<td>[[${cartItem.product.price*cartItem.quantity}]]</td>
+										<td>$[[${cartItem.product.price*cartItem.quantity}]]</td>
 										<td><a href="#" class="btn btn-black btn-sm updateCart" th:data-action="remove" th:data-id="${cartItem.product.id}">X</a></td>
 									</tr>
 								</tbody>
@@ -56,9 +49,7 @@
 						</div>
 					</form>
 
-					<div class="alert alert-dark" role="alert" th:unless="${cartItems != null and !#lists.isEmpty(cartItems)}">
-						You don't have any cart!
-					</div>
+					<div class="alert alert-dark" role="alert" th:unless="${cartItems != null and !#lists.isEmpty(cartItems)}">You don't have any cart!</div>
 				</div>
 
 				<div class="row">
@@ -110,9 +101,7 @@
 								</div>
 
 								<div class="row">
-									<div class="col-md-12">
-										<a class="btn btn-black btn-lg py-3 btn-block" href="checkout" th:href="@{/checkout}">Proceed To Checkout</a>
-									</div>
+									<div class="col-md-12"><a class="btn btn-black btn-lg py-3 btn-block" href="checkout" th:href="@{/checkout}">Proceed To Checkout</a></div>
 								</div>
 							</div>
 						</div>
@@ -128,31 +117,31 @@
 		<script src="/js/tiny-slider.js"></script>
 		<script src="/js/custom2.js"></script>
 		<script>
-			let updateCart = document.getElementsByClassName("updateCart")
-			for (let i=0;i<updateCart.length;i++){
-				updateCart[i].addEventListener("click",function(){
-					let itemId = this.dataset.id
-					let action = this.dataset.action
-					updateItemCart(itemId,action)
-				})
-			}
-			function updateItemCart(itemId, action) {
-				fetch('/update-cart', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({ id: itemId, action: action })
-				})
-						.then(response => response.json())
-						.then(data => {
-							// Xử lý phản hồi từ server, cập nhật UI nếu cần
-							console.log(data);
-						})
-						.catch(error => {
-							console.error('Error:', error);
-						});
-			}
+			// let updateCart = document.getElementsByClassName("updateCart")
+			// for (let i=0;i<updateCart.length;i++){
+			// 	updateCart[i].addEventListener("click",function(){
+			// 		let itemId = this.dataset.id
+			// 		let action = this.dataset.action
+			// 		updateItemCart(itemId,action)
+			// 	})
+			// }
+			// function updateItemCart(itemId, action) {
+			// 	fetch('/update-cart', {
+			// 		method: 'POST',
+			// 		headers: {
+			// 			'Content-Type': 'application/json'
+			// 		},
+			// 		body: JSON.stringify({ id: itemId, action: action })
+			// 	})
+			// 			.then(response => response.json())
+			// 			.then(data => {
+			// 				// Xử lý phản hồi từ server, cập nhật UI nếu cần
+			// 				console.log(data);
+			// 			})
+			// 			.catch(error => {
+			// 				console.error('Error:', error);
+			// 			});
+			// }
 		</script>
 
 </html>

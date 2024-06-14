@@ -66,14 +66,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(passwordEncoder().encode("adminPass"))
-//                .roles("ADMIN");
-//    }
-
     @Bean
     public UserDetailsService userDetailsService(){
         return new OurUserInfoDetailsService();
